@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>FastxAI | Main</title>
+
+  <meta name="google-signin-client_id"
+    content="733819648330-gga9d3mohbotq38ti6k7fg4st9f71hqi.apps.googleusercontent.com">
+
+  <link rel="stylesheet" href="css/all.min.css">
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"
+    defer></script>
+
+  <link rel="stylesheet" href="fastx.css">
+</head>
+
+<body>
+  <div class="container">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-content">
+        <button id="newChatBtn" class="btn btn-primary">
+          <i class="fa fa-feather"></i>
+          <span>New Chat</span>
+        </button>
+
+        <ul class="chat-list" id="chatList"></ul>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="model-info">
+          <p>Model</p>
+          <strong id="currentModel">mistralai/devstral-2512:free</strong>
+        </div>
+      </div>
+    </aside>
+    <main class="main-chat">
+
+      <header class="chat-header">
+        <div class="header-left">
+          <button class="menu-btn" id="toggleBtn" aria-label="Open Menu">
+            <i id="iconElement" class="fa-solid fa-bars"></i>
+          </button>
+
+          <h2>FastxAI | Chat</h2>
+          <h3>FastxAI</h3>
+
+          <button
+            onclick="window.location.href='https://github.com/voltxl/'"
+            class="github"
+            aria-label="GitHub"
+            style="background-color: #fff; border: none;">
+            <i class="fab fa-github"></i>
+          </button>
+          <button id="toggleMobileBtn" class="mobile-menu-btn">
+            <i id="MobileIconElement" class="fa-solid fa-bars"></i> <!--ToggleMobileBtn-->
+          </button>
+        </div>
+
+        <div class="header-right">
+          <div id="googleLogin"></div>
+
+          <div id="userBox" style="display:none;align-items:center;gap:8px">
+            <img id="userAvatar" width="32" height="32" style="border-radius:50%">
+            <span id="userName"></span>
+            <button onclick="logout()" class="btn">Logout</button>
+          </div>
+
+          <select class="model-selector" id="modelSelector"></select>
+          <select class="model-selector" id="promptSelector"></select>
+        </div>
+      </header>
+
+      <div class="messages-area" id="messagesArea">
+        <div class="empty-state">
+          <div class="empty-icon"><i class="fa fa-message"></i></div>
+          <h3>Start a Conversation</h3>
+          <p>Type a message to begin</p>
+        </div>
+      </div>
+
+<aside id="mobileSidebar" class="mobileSidebar"> 
+  <div class="sidebar-content">
+    <button class="btn btn-primary new-chat-btn">
+      <i class="fa fa-feather"></i>
+      <span>New Chat</span>
+    </button>
+    <ul class="chat-list mobile-chat-list"></ul>
+  </div>
+</aside>
+
+      <div class="input-section" id="inputSection">
+        <form class="message-form" id="messageForm">
+          <input
+            type="text"
+            id="messageInput"
+            placeholder="Talk about something..."
+            autocomplete="off"
+            required
+          >
+          <button type="submit" id="sendBtn">
+            <i class="fa fa-arrow-up"></i>
+          </button>
+        </form>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+  <script src="script.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      if (window.hljs) {
+        hljs.highlightAll()
+      }
+    })
+  </script>
+</body>
+</html>
